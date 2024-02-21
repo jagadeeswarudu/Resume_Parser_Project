@@ -45,10 +45,9 @@ def upload(request):
 # Sanitize the file name (replace spaces with underscores, for example)
 
 # Create the full path using os.path.join
-            if temp==1:
-                files = {'file': open(doc_path,'rb')}
-            else:
-                files = {'file': open(path,'rb')}
+            
+            
+            files = {'file': open(path,'rb')}
 
             response = requests.post(url, data=data, files=files, headers=headers)
 
