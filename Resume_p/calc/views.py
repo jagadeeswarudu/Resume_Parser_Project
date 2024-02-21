@@ -35,7 +35,7 @@ def upload(request):
             sanitized_file_name = file_name.replace(' ', '_')
             path = os.path.join('D:\\Resume Parser Project\\Resume_p\\media', sanitized_file_name)
            
-            headers = {"Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMmQ2OTlhODctOTIxMC00YWE3LThhYmEtMjdlYjkyNGYyNzc3IiwidHlwZSI6ImFwaV90b2tlbiJ9.drNIW3vajSMe7jITN3vxdglzhm1SxXIxeIa_58bmOWY"}
+            headers = {"Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNzVmZmZhN2UtNzA3Ni00MzdhLWI2NzktMTc3NjkyZTYwNWNlIiwidHlwZSI6ImFwaV90b2tlbiJ9.ngU-dpJqoh1uDEgjjnrE_5EAMeIkbwhpZghJRSDPVkI"}
 
             url = "https://api.edenai.run/v2/ocr/resume_parser"
             data = {
