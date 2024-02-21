@@ -11,26 +11,14 @@ import json
 import os
 import requests
 import logging
-from win32com import client as wc
-import pythoncom
+
+
 from .models import Contact
 from docx import Document
 from docx2txt import process
 from django.contrib import messages 
 
-def convert_docx_to_doc(docx_path, doc_path):
-    # Load the DOCX document using python-docx
-    doc = Document(docx_path)
 
-    # Create a new DOC document
-    new_doc = Document()
-
-    # Copy content from DOCX to DOC
-    for element in doc.element.body:
-        new_doc.element.body.append(element)
-
-    # Save the new DOC document
-    new_doc.save(doc_path)
 
 def home(request):
     return render(request, 'index1.html')
@@ -46,12 +34,7 @@ def upload(request):
             file_name = str(request.FILES['file'])
             sanitized_file_name = file_name.replace(' ', '_')
             path = os.path.join('D:\\Resume Parser Project\\Resume_p\\media', sanitized_file_name)
-            temp=0
-            if file_name.lower().endswith('.docx'):
-                # Convert .docx to .doc
-                doc_path = os.path.join('D:\\Resume Parser Project\\Resume_p\\media\\uploads', sanitized_file_name.replace('.docx', '.doc'))
-                temp=1
-                convert_docx_to_doc(path, doc_path)
+           
             headers = {"Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMmQ2OTlhODctOTIxMC00YWE3LThhYmEtMjdlYjkyNGYyNzc3IiwidHlwZSI6ImFwaV90b2tlbiJ9.drNIW3vajSMe7jITN3vxdglzhm1SxXIxeIa_58bmOWY"}
 
             url = "https://api.edenai.run/v2/ocr/resume_parser"
