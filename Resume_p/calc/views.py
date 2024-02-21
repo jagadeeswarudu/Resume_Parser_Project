@@ -14,8 +14,6 @@ import logging
 
 
 from .models import Contact
-from docx import Document
-from docx2txt import process
 from django.contrib import messages 
 
 
