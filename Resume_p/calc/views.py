@@ -15,7 +15,7 @@ import logging
 
 from .models import Contact
 from django.contrib import messages 
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(_file_)))
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 UPLOADS_PATH = os.path.join(MEDIA_ROOT, 'uploads')
 
