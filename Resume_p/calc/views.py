@@ -15,7 +15,9 @@ import logging
 
 from .models import Contact
 from django.contrib import messages 
-
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(_file_)))
+MEDIA_ROOT = os.path.join(BASE_DIR,'media')
+UPLOADS_PATH = os.path.join(MEDIA_ROOT, 'uploads')
 
 
 def home(request):
@@ -31,7 +33,7 @@ def upload(request):
             form.save()
             file_name = str(request.FILES['file'])
             sanitized_file_name = file_name.replace(' ', '_')
-            path = os.path.join('D:\\Resume Parser Project\\Resume_p\\media', sanitized_file_name)
+            path = os.path.join(MEDIA_ROOT, sanitized_file_name)
            
             headers = {"Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNzVmZmZhN2UtNzA3Ni00MzdhLWI2NzktMTc3NjkyZTYwNWNlIiwidHlwZSI6ImFwaV90b2tlbiJ9.ngU-dpJqoh1uDEgjjnrE_5EAMeIkbwhpZghJRSDPVkI"}
 
